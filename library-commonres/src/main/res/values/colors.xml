@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--导航栏颜色_APP主题色-->
+    <color name="colorPrimary">#3F51B5</color>
+    <!--沉浸式状态栏颜色-->
+    <color name="colorPrimaryDark">#303F9F</color>
+    <!--控件选中色-->
+    <color name="colorAccent">#FF4081</color>
+</resources>

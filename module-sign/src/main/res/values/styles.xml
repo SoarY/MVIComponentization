@@ -1,0 +1,6 @@
+<resources>
+    <!--StartActivity Style 冷启动效果-->
+    <style name="SignThemeStart" parent="AppTheme">
+        <item name="android:windowBackground">@mipmap/sing_ic_splash</item>
+    </style>
+</resources>
