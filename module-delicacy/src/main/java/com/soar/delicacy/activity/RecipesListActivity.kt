@@ -8,6 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.soar.common.router.RouteConstants
 import com.soar.delicacy.action.RecipesListViewAction
+import com.soar.delicacy.action.RecipesListViewEvent
 import com.soar.delicacy.adapter.RecipesAdapter
 import com.soar.delicacy.databinding.ActivityHomeBinding
 import com.soar.delicacy.vm.RecipesListViewModel
@@ -38,6 +39,12 @@ class RecipesListActivity : BaseActivity<ActivityHomeBinding>() {
 
     private fun observeViewModel() {
         recipesListViewModel.viewStates.observe(this, ::handleRecipesList)
+
+        recipesListViewModel.viewEvents.observe(this){ it ->
+            it.forEach {
+                renderViewEvent(it)
+            }
+        }
     }
 
     private fun initData() {
@@ -87,5 +94,12 @@ class RecipesListActivity : BaseActivity<ActivityHomeBinding>() {
             .build(RouteConstants.Delicacy.DELICACY_DETAILS)
             .withSerializable(DetailsActivity.RECIPE_ITEM_KEY,item)
             .navigation(this)
+    }
+
+    private fun renderViewEvent(viewEvent: RecipesListViewEvent) {
+        when (viewEvent) {
+            is RecipesListViewEvent.ShowToast -> {
+            }
+        }
     }
 }

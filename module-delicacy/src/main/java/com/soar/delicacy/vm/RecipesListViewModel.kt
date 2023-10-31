@@ -2,6 +2,7 @@ package com.soar.delicacy.vm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.soar.common.base.BaseApplication
 import com.soar.delicacy.repository.RecipesListRepository
 import com.soar.delicacy.action.RecipesListViewAction
 import com.soar.delicacy.action.RecipesListViewEvent
@@ -37,6 +38,10 @@ class RecipesListViewModel : BaseViewModel(){
             _viewStates.value = ViewState(FetchStatus.Fetching)
             RecipesListRepository.requestRecipes().collect {
                 _viewStates.value = it
+
+                /*_viewEvents.value=listOf(RecipesListViewEvent.ShowToast(
+                    BaseApplication
+                    .context.getString(R.string.to_loaded)))*/
             }
         }
     }
